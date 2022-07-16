@@ -76,12 +76,14 @@ func (list *LinkedList) Clear() bool {
 
 func (list *LinkedList) Delete(value int) bool {
 	for list.Has() {
-		if list.Next().Next != nil && list.Next().Next.Value == value {
-			list.currentElem.Next = list.currentElem.Next.Next
+		nextElem := list.currentElem.Next
+		if nextElem != nil && nextElem.Value == value {
+			list.currentElem.Next = nextElem.Next
 			list.currentElem = list.head
 			list.len--
 			return true
 		}
+		list.currentElem = list.currentElem.Next
 	}
 	list.currentElem = list.head
 	return false

@@ -1,4 +1,4 @@
-package linkedList
+package list
 
 import "fmt"
 
@@ -10,7 +10,15 @@ func Example() {
 	list.Add(2)
 	list.Add(3)
 	fmt.Println("Len: ", list.Len())
-	fmt.Println("Start iter:")
+	fmt.Println("Start iter direct order:")
+	for list.Has() {
+		fmt.Println(list.Next().Value)
+	}
+	fmt.Println("Start iter reverse order:")
+	for list.HasPrevious() {
+		fmt.Println(list.Previous().Value)
+	}
+	fmt.Println("Start iter direct order:")
 	for list.Has() {
 		fmt.Println(list.Next().Value)
 	}
@@ -28,19 +36,11 @@ func Example() {
 		fmt.Println(list.Next().Value)
 	}
 
-	// case 3: delete middle elem
-	fmt.Println("\nDelete 2")
-	list.Delete(2)
-	fmt.Println("Len: ", list.Len())
-	for list.Has() {
-		fmt.Println(list.Next().Value)
-	}
-
-	// case 4: clear
-	fmt.Println("\nClear list")
-	list.Clear()
-	fmt.Println("Len: ", list.Len())
-	for list.Has() {
-		fmt.Println(list.Next().Value)
-	}
+	// case 3: delete
+	// fmt.Println("\nDelete 2")
+	// list.Delete(2)
+	// fmt.Println("Len: ", list.Len())
+	// for list.Has() {
+	// 	fmt.Println(list.Next().Value)
+	// }
 }

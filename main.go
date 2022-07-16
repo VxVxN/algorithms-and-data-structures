@@ -1,6 +1,8 @@
 package main
 
-import "test/structs/linkedList"
+import (
+	"test/structs/linkedList"
+)
 
 func main() {
 	linkedList.Example()
