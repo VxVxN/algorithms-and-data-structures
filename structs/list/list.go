@@ -88,3 +88,27 @@ func (list *List) HasValue(value int) bool {
 	list.currentElem = list.head
 	return false
 }
+
+func (list *List) Delete(value int) bool {
+	for list.Has() {
+		nextElem := list.currentElem.Next
+		if nextElem != nil && nextElem.Value == value {
+			list.currentElem.Next = nextElem.Next
+			nextElem.Next.Previous = list.currentElem
+			list.currentElem = list.head
+			list.len--
+			return true
+		}
+		list.currentElem = list.currentElem.Next
+	}
+	list.currentElem = list.head
+	return false
+}
+
+func (list *List) Clear() bool {
+	list.head.Next = list.tail
+	list.tail.Previous = list.head
+	list.len = 0
+	list.currentElem = list.head
+	return false
+}

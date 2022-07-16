@@ -37,10 +37,18 @@ func Example() {
 	}
 
 	// case 3: delete
-	// fmt.Println("\nDelete 2")
-	// list.Delete(2)
-	// fmt.Println("Len: ", list.Len())
-	// for list.Has() {
-	// 	fmt.Println(list.Next().Value)
-	// }
+	fmt.Println("\nDelete 2")
+	list.Delete(2)
+	fmt.Println("Len: ", list.Len())
+	for list.Has() {
+		fmt.Println(list.Next().Value)
+	}
+
+	// case 4: clear
+	fmt.Println("\nClear list")
+	list.Clear()
+	fmt.Println("Len: ", list.Len())
+	for list.Has() {
+		fmt.Println(list.Next().Value)
+	}
 }
